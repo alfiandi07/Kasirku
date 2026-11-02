@@ -1,0 +1,45 @@
+// =====================================================================
+// Day 10: Prisma Schema berdasarkan struktur day_10/object.js
+// Jalankan migrasi: npx prisma migrate dev --name init_products
+// Generate client: npx prisma generate
+// =====================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ---------------------------------------------------------------------
+// PILIHAN A: Jika menggunakan Database Relasional (PostgreSQL / MySQL / SQLite)
+// ---------------------------------------------------------------------
+datasource db {
+  provider = "postgresql" // ganti dengan "mysql" atau "sqlite" jika diperlukan
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id        Int      @id @default(autoincrement())
+  nama      String
+  harga     Int
+  stok      Int      @default(0)
+  kategori  String   @default("Umum")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("products")
+}
+
+// ---------------------------------------------------------------------
+// PILIHAN B: Jika Prisma dikoneksikan ke MongoDB
+// (Ganti provider datasource db menjadi: provider = "mongodb")
+// ---------------------------------------------------------------------
+// model ProductMongo {
+//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//   nama      String
+//   harga     Int
+//   stok      Int      @default(0)
+//   kategori  String   @default("Umum")
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//
+//   @@map("products")
+// }
