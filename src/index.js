@@ -24,6 +24,37 @@ async function muat() {
 // 3. Panggil muat() saat program mulai
 let daftar = await muat();
 
+// Array data tema undangan (Tugas 1): digunakan sebagai data awal jika file kosong
+if (daftar.length === 0) {
+  daftar = [
+    {
+      nama: "adat jawa klasik",
+      harga: 129000,
+    },
+    {
+      nama: "adat sunda modern",
+      harga: 129000,
+    },
+    {
+      nama: "emarld luxury",
+      harga: 129004,
+    },
+    {
+      nama: "white minimalist",
+      harga: 129000,
+    },
+    {
+      nama: "floral pastel romance",
+      harga: 129000,
+    },
+    {
+      nama: "black & gold clean",
+      harga: 129000,
+    },
+  ];
+  await simpan(daftar);
+}
+
 // Fungsi saring tema adat (Studi Kasus 1)
 function saringTemaAdat(list) {
   return list.filter((item) => item.nama.toLocaleLowerCase().includes("adat"));
