@@ -1,0 +1,195 @@
+/* 1. Latar Belakang Seluruh Layar */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0b2f8f 0%, #3b82f6 50%, #60a5fa 100%);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 2. Menu Navigasi Atas (Masuk | Daftar) */
+nav {
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* 3. Kotak Kartu Form Putih di Tengah */
+form {
+  background: #efeded;
+  padding: 28px 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 360px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Membuat isi form tersusun vertikal dari atas ke bawah */
+  gap: 8px;
+}
+
+form h2 {
+  margin: 0 0 12px 0;
+  text-align: center;
+  color: #1e293b;
+  font-size: 20px;
+}
+
+/* 4. Label Tulisan di Atas Setiap Input */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 6px;
+}
+
+/* 5. Kotak Input Teks & Password */
+input[type="text"],
+input[type="password"],
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #5887c1;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+/* Saat kotak input diklik/aktif */
+input[type="text"]:focus,
+input[type="password"]:focus,
+.input:focus {
+  border-color: #2563eb;
+}
+
+/* Saat ada error (kotak merah halus) */
+input.error {
+  border: 1.5px solid #ef4444 !important;
+  background-color: #fef2f2;
+}
+
+/* Teks pesan error merah */
+.error-message {
+  display: block;
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: -2px;
+}
+
+/* 6. Kotak Baris Password & Tombol Lihat */
+.password-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.password-row input {
+  flex: 1;
+}
+
+.password-row button {
+  padding: 0 14px;
+  border: 1.5px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #334155;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.password-row button:hover {
+  background-color: #e2e8f0;
+}
+
+/* 7. Checkbox Syarat & Ketentuan */
+input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+}
+
+/* 8. Tombol Submit (Masuk / Daftar) */
+button[type="submit"] {
+  margin-top: 14px;
+  padding: 11px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #1d4ed8;
+}
+
+/* 9. Teks Link di Bawah Tombol */
+form p {
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+form p a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+form p a:hover {
+  text-decoration: underline;
+}
+
+/* 10. Animasi Notifikasi Toast */
+@keyframes meluncur {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: meluncur 0.3s ease-out;
+  z-index: 999;
+}
+
+.toast.sukses {
+  background-color: #10b981;
+}
+
+.toast.gagal {
+  background-color: #ef4444;
+}
